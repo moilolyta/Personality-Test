@@ -1,0 +1,10 @@
+---
+layout: default
+permalink: /lifestyle/
+---
+
+<h1>lifestyle</h1>
+<ul>
+  <li><a href="/shameless_test.html">Shameless Character Test</a></li>
+  <!-- Puoi aggiungere altri test qui -->
+</ul>

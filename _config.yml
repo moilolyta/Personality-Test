@@ -1,0 +1,13 @@
+title: Personality Test
+email: your-email@example.com
+description: >- 
+  Choose a category of tests to find out which character you are most like!
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://yourdomain.com" # replace with your actual domain
+twitter_username: jekyllrb
+github_username: jekyll
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
