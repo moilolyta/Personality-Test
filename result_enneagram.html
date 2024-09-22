@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Enneagram Type</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 2px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Enneagram Personality Type</h1>
+    <div id="result"></div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const scores = Array(10).fill(0);
+
+        // Count responses for each question
+        for (let i = 1; i <= 10; i++) {
+            const answer = urlParams.get(`question_${i}`);
+            if (answer) scores[parseInt(answer) - 1]++;
+        }
+
+        // Determine the dominant type based on scores
+        const dominantType = scores.indexOf(Math.max(...scores)) + 1;
+
+        // Define the descriptions for each Enneagram type
+        const descriptions = {
+            1: "Type 1: The Reformer. You are principled, purposeful, and self-controlled. You strive for perfection and hold high standards for yourself and others.",
+            2: "Type 2: The Helper. You are caring, generous, and people-pleasing. You prioritize the needs of others and seek love and appreciation.",
+            3: "Type 3: The Achiever. You are ambitious, adaptable, and success-oriented. You focus on achievements and are driven by the desire to excel.",
+            4: "Type 4: The Individualist. You are sensitive, introspective, and expressive. You seek authenticity and are deeply in touch with your emotions.",
+            5: "Type 5: The Investigator. You are perceptive, innovative, and private. You crave knowledge and understanding, often retreating into your mind.",
+            6: "Type 6: The Loyalist. You are responsible, anxious, and security-oriented. You value loyalty and seek support and reassurance from others.",
+            7: "Type 7: The Enthusiast. You are spontaneous, versatile, and fun-loving. You pursue experiences and joy, often avoiding pain or discomfort.",
+            8: "Type 8: The Challenger. You are assertive, decisive, and protective. You stand your ground and seek control in your environment.",
+            9: "Type 9: The Peacemaker. You are easy-going, accommodating, and supportive. You value harmony and strive to avoid conflict."
+        };
+
+        // Display the result
+        document.getElementById("result").innerText = descriptions[dominantType];
+    </script>
+</body>
+</html>
